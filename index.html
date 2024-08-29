@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Avanzada</title>
+    <style>
+        .calculator {
+            width: 350px;
+            margin: 100px auto;
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .calculator input, .calculator button {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            box-sizing: border-box;
+        }
+        .calculator button {
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+        }
+        .calculator button:hover {
+            background-color: #e0e0e0;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <div>
+            <input type="text" id="number1" placeholder="Número izquierdo">
+        </div>
+        <div>
+            <input type="text" id="number2" placeholder="Número derecho">
+        </div>
+        <button onclick="performOperation('+')">Suma</button>
+        <button onclick="performOperation('-')">Resta</button>
+        <button onclick="performOperation('*')">Multiplicación</button>
+        <button onclick="performOperation('/')">División</button>
+        <button onclick="calculate()">Calcular</button>
+        <div>
+            <input type="text" id="result" placeholder="Resultado" disabled>
+        </div>
+    </div>
+
+    <script>
+        // Objeto para manejar el estado de la calculadora
+        const calculator = {
+            num1: 0,
+            num2: 0,
+            operator: '+',
+            result: 0,
+            setNumbers: function(num1, num2) {
+                this.num1 = parseFloat(num1);
+                this.num2 = parseFloat(num2);
+            },
+            setOperator: function(op) {
+                this.operator = op;
+            },
+            calculate: function(callback) {
+                let result;
+                switch (this.operator) {
+                    case '+':
+                        result = this.num1 + this.num2;
+                        break;
+                    case '-':
+                        result = this.num1 - this.num2;
+                        break;
+                    case '*':
+                        result = this.num1 * this.num2;
+                        break;
+                    case '/':
+                        if (this.num2 === 0) {
+                            result = 'División por cero';
+                        } else {
+                            result = this.num1 / this.num2;
+                        }
+                        break;
+                    default:
+                        result = 'Operador desconocido';
+                }
+                this.result = result;
+                callback(result);
+            }
+        };
+
+        function performOperation(operator) {
+            // Configurar el operador en el objeto calculadora
+            calculator.setOperator(operator);
+        }
+
+        function calculate() {
+            // Obtener los valores de los campos de texto
+            let num1 = document.getElementById('number1').value;
+            let num2 = document.getElementById('number2').value;
+
+            // Configurar los números en el objeto calculadora
+            calculator.setNumbers(num1, num2);
+
+            // Calcular el resultado y mostrarlo en el campo de texto
+            calculator.calculate(function(result) {
+                document.getElementById('result').value = result;
+            });
+        }
+    </script>
+</body>
+</html>
