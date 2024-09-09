@@ -3,108 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora Avanzada</title>
+    <title>Secuencia Fibonacci</title>
     <style>
-        .calculator {
-            width: 350px;
-            margin: 100px auto;
-            border: 1px solid #ccc;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
         }
-        .calculator input, .calculator button {
-            width: 100%;
-            padding: 10px;
-            margin: 5px 0;
-            box-sizing: border-box;
-        }
-        .calculator button {
-            background-color: #f0f0f0;
-            border: 1px solid #ccc;
-        }
-        .calculator button:hover {
-            background-color: #e0e0e0;
+        #fibonacci-sequence {
+            margin-top: 20px;
+            white-space: pre-wrap; /* Para mostrar correctamente los espacios en blanco */
         }
     </style>
 </head>
 <body>
-    <div class="calculator">
-        <div>
-            <input type="text" id="number1" placeholder="Número izquierdo">
-        </div>
-        <div>
-            <input type="text" id="number2" placeholder="Número derecho">
-        </div>
-        <button onclick="performOperation('+')">Suma</button>
-        <button onclick="performOperation('-')">Resta</button>
-        <button onclick="performOperation('*')">Multiplicación</button>
-        <button onclick="performOperation('/')">División</button>
-        <button onclick="calculate()">Calcular</button>
-        <div>
-            <input type="text" id="result" placeholder="Resultado" disabled>
-        </div>
-    </div>
+    <h1>Secuencia de Fibonacci</h1>
+    <div id="fibonacci-sequence"></div>
 
     <script>
-        // Objeto para manejar el estado de la calculadora
-        const calculator = {
-            num1: 0,
-            num2: 0,
-            operator: '+',
-            result: 0,
-            setNumbers: function(num1, num2) {
-                this.num1 = parseFloat(num1);
-                this.num2 = parseFloat(num2);
-            },
-            setOperator: function(op) {
-                this.operator = op;
-            },
-            calculate: function(callback) {
-                let result;
-                switch (this.operator) {
-                    case '+':
-                        result = this.num1 + this.num2;
-                        break;
-                    case '-':
-                        result = this.num1 - this.num2;
-                        break;
-                    case '*':
-                        result = this.num1 * this.num2;
-                        break;
-                    case '/':
-                        if (this.num2 === 0) {
-                            result = 'División por cero';
-                        } else {
-                            result = this.num1 / this.num2;
-                        }
-                        break;
-                    default:
-                        result = 'Operador desconocido';
+        function generarFibonacciHastaLimite(limite) {
+            let fib = [0, 1];  // Inicializamos los dos primeros números de la secuencia
+
+            while (true) {
+                let siguiente = fib[fib.length - 1] + fib[fib.length - 2];
+                if (siguiente > limite) {
+                    break;  // Salimos del bucle si el siguiente número excede el límite
                 }
-                this.result = result;
-                callback(result);
+                fib.push(siguiente);  // Agregamos el siguiente número a la secuencia
             }
-        };
 
-        function performOperation(operator) {
-            // Configurar el operador en el objeto calculadora
-            calculator.setOperator(operator);
+            // Si el límite está en la secuencia, no hacemos nada
+            // Si el límite no está en la secuencia, lo añadimos manualmente
+            if (fib[fib.length - 1] < limite) {
+                fib.push(limite);
+            }
+
+            return fib;
         }
 
-        function calculate() {
-            // Obtener los valores de los campos de texto
-            let num1 = document.getElementById('number1').value;
-            let num2 = document.getElementById('number2').value;
-
-            // Configurar los números en el objeto calculadora
-            calculator.setNumbers(num1, num2);
-
-            // Calcular el resultado y mostrarlo en el campo de texto
-            calculator.calculate(function(result) {
-                document.getElementById('result').value = result;
-            });
+        function convertirANumeroDeAsteriscos(fib) {
+            return fib.map(num => '*'.repeat(num)).join('\n');
         }
+
+        // Generamos los números de la secuencia de Fibonacci hasta el número 34
+        const limite = 89;
+        const secuencia = generarFibonacciHastaLimite(limite);
+
+        // Convertimos la secuencia de números a una representación de asteriscos
+        const asteriscos = convertirANumeroDeAsteriscos(secuencia);
+
+        // Mostramos la secuencia de asteriscos en el div con id 'fibonacci-sequence'
+        const div = document.getElementById('fibonacci-sequence');
+        div.textContent = 'Secuencia de Fibonacci (como asteriscos):\n' + asteriscos;
     </script>
 </body>
 </html>
+
