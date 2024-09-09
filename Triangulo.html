@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serie Triangular</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        #triangle-sequence {
+            margin-top: 20px;
+            white-space: pre-wrap; /* Para mostrar correctamente los espacios en blanco */
+        }
+    </style>
+</head>
+<body>
+    <h1>Serie Triangular</h1>
+    <div id="triangle-sequence"></div>
+
+    <script>
+        function generarSerieTriangular(n) {
+            let triangulares = [];
+            for (let i = 1; i <= n; i++) {
+                let numeroTriangular = (i * (i + 1)) / 2;  // Calculamos el número triangular
+                triangulares.push(numeroTriangular);
+            }
+            return triangulares;
+        }
+
+        function convertirANumeroDeAsteriscos(triangulares) {
+            return triangulares.map(num => '*'.repeat(num)).join('\n');
+        }
+
+        // Generamos los primeros 10 números triangulares
+        const cantidad = 10;
+        const serieTriangular = generarSerieTriangular(cantidad);
+
+        // Convertimos la serie de números a una representación de asteriscos
+        const asteriscos = convertirANumeroDeAsteriscos(serieTriangular);
+
+        // Mostramos la serie de asteriscos en el div con id 'triangle-sequence'
+        const div = document.getElementById('triangle-sequence');
+        div.textContent = 'Serie Triangular (como asteriscos):\n' + asteriscos;
+    </script>
+</body>
+</html>
+
