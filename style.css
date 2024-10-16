@@ -1,91 +1,220 @@
-/* Estilos Generales */
-body {
-    font-family: Arial, sans-serif;
+/* Reset de estilos por defecto */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-header {
+/* Tipografía */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #ffffff;
+    color: #333333;
+}
+
+/* Estilos del Menú de Navegación */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333333;
+    padding: 10px 20px;
+}
+
+.logo h1 {
+    color: #ffffff;
+    font-size: 24px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #f0a500;
+}
+
+/* Estilos de Productos */
+.productos {
+    padding: 40px 20px;
     text-align: center;
-    padding: 20px;
     background-color: #f4f4f4;
 }
 
-h1 {
-    margin: 0;
+.productos h2 {
+    margin-bottom: 30px;
+    font-size: 32px;
+    color: #333333;
 }
 
-/* Estilos del Slider */
-.slider {
-    position: relative;
-    max-width: 100%;
-    margin: auto;
-    overflow: hidden;
-}
-
-.slides {
+.product-container {
     display: flex;
-    transition: transform 0.5s ease-in-out;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px; /* Espacio entre productos */
 }
 
-.slide {
-    min-width: 100%;
-    box-sizing: border-box;
-}
-
-.slide img {
-    width: 100%;
-    display: block;
-}
-
-button {
-    position: absolute;
-    top: 50%;
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    z-index: 100;
-    transform: translateY(-50%);
-}
-
-.prev {
-    left: 10px;
-}
-
-.next {
-    right: 10px;
-}
-
-@media (max-width: 600px) {
-    button {
-        padding: 5px;
-    }
-}
-
-/* Estilos de la Galería */
-.gallery {
+.product {
+    background: #ffffff;
+    border: 1px solid #dddddd;
     padding: 20px;
+    width: 250px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.product:hover {
+    transform: scale(1.05);
+}
+
+.product img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 1px solid #dddddd;
+    margin-bottom: 15px;
+}
+
+.product h3 {
+    margin: 10px 0;
+    color: #333333;
+    font-size: 20px;
+}
+
+.product p {
+    color: #666666;
+    font-size: 16px;
     text-align: center;
 }
 
-.gallery h2 {
+.product .precio {
+    margin-top: 10px;
+    font-weight: bold;
+    color: #f0a500;
+    font-size: 18px;
+}
+
+.comprar-btn {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #f0a500;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    font-size: 16px;
+}
+
+.comprar-btn:hover {
+    background-color: #c37900;
+}
+
+/* Estilos de Misión y Visión */
+.mision, .vision {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.mision h2, .vision h2 {
     margin-bottom: 20px;
+    font-size: 28px;
+    color: #333333;
 }
 
-.gallery-images {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
+.mision p, .vision p {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 18px;
+    color: #555555;
+    line-height: 1.6;
 }
 
-.gallery-images img {
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-    border: 2px solid #ddd;
-    border-radius: 8px;
+/* Estilos de Contacto */
+.contacto {
+    padding: 40px 20px;
+    text-align: center;
+    background-color: #f4f4f4;
+}
+
+.contacto h2 {
+    margin-bottom: 20px;
+    font-size: 28px;
+    color: #333333;
+}
+
+.contacto p {
+    font-size: 18px;
+    color: #555555;
+    margin: 10px 0;
+}
+
+.contacto p i {
+    margin-right: 10px;
+    color: #f0a500;
+}
+
+/* Responsividad */
+@media (max-width: 1200px) {
+    .product-container {
+        justify-content: space-around;
+    }
+}
+
+@media (max-width: 992px) {
+    .product-container {
+        justify-content: space-between;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+        background-color: #333333;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%;
+        display: none;
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+    }
+
+    .navbar {
+        position: relative;
+    }
+
+    /* Botón de Menú (Hamburguesa) */
+    .menu-btn {
+        display: block;
+        cursor: pointer;
+        color: #ffffff;
+        font-size: 24px;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .product-container {
+        flex-direction: column;
+        align-items: center;
+    }
 }

@@ -3,58 +3,153 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Secuencia Fibonacci</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-        #fibonacci-sequence {
-            margin-top: 20px;
-            white-space: pre-wrap; /* Para mostrar correctamente los espacios en blanco */
-        }
-    </style>
+    <title>Ferretería XYZ</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Integrar Font Awesome (Opcional) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Integrar Google Fonts (Opcional) -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Secuencia de Fibonacci</h1>
-    <div id="fibonacci-sequence"></div>
+    <!-- Menú de Navegación -->
+    <nav class="navbar">
+        <div class="logo">
+            <h1>Ferretería XYZ</h1>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#productos">Productos</a></li>
+            <li><a href="#mision">Misión</a></li>
+            <li><a href="#vision">Visión</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+    </nav>
 
-    <script>
-        function generarFibonacciHastaLimite(limite) {
-            let fib = [0, 1];  // Inicializamos los dos primeros números de la secuencia
+    <!-- Sección de Productos -->
+    <section id="productos" class="productos">
+        <h2>Nuestros Productos</h2>
+        <div class="product-container">
+            <!-- Producto 1 -->
+            <div class="product">
+                <img src="tornillo.jpg" alt="Tornillos">
+                <h3>Tornillos</h3>
+                <p>Alta calidad y durabilidad.</p>
+                <p class="precio">Precio: $1.50</p>
+                <button class="comprar-btn">Comprar</button>
+            </div>
+            <!-- Producto 2 -->
+            <div class="product">
+                <img src="martillo.jpeg" alt="Martillos">
+                <h3>Martillos</h3>
+                <p>Resistentes y cómodos.</p>
+                <p class="precio">Precio: $8.99</p>
+                <button class="comprar-btn">Comprar</button>
+            </div>
+            <!-- Producto 3 -->
+            <div class="product">
+                <img src="pngtree-screwdriver-repair-metal-repair-png-image_6465230.jpg" alt="Destornilladores">
+                <h3>Destornilladores</h3>
+                <p>Precisión en cada uso.</p>
+                <p class="precio">Precio: $5.75</p>
+                <button class="comprar-btn">Comprar</button>
+            </div>
+            <!-- Producto 4 -->
+            <div class="product">
+                <img src="llave inglesa.webp" alt="Llaves Inglesas">
+                <h3>Llaves Inglesas</h3>
+                <p>Versátiles y robustas.</p>
+                <p class="precio">Precio: $12.50</p>
+                <button class="comprar-btn">Comprar</button>
+            </div>
+            <!-- Producto 5 -->
+            <div class="product">
+                <img src="sierras.webp" alt="Sierra">
+                <h3>Sierra</h3>
+                <p>Corte preciso y eficiente.</p>
+                <p class="precio">Precio: $15.00</p>
+                <button class="comprar-btn">Comprar</button>
+            </div>
+            <!-- Producto 6 -->
+            <div class="product">
+                <img src="taladro.jpeg" alt="Taladro">
+                <h3>Taladro</h3>
+                <p>Poderoso y fácil de usar.</p>
+                <p class="precio">Precio: $45.00</p>
+                <button class="comprar-btn">Comprar</button>
+            </div>
+            <!-- Producto 7 -->
+            <div class="product">
+                <img src="images/nivel.webp" alt="Nivel">
+                <h3>Nivel</h3>
+                <p>Preciso y fácil de usar.</p>
+                <p class="precio">Precio: $7.25</p>
+                <button class="comprar-btn">Comprar</button>
+            </div>
+            <!-- Producto 8 -->
+            <div class="product">
+                <img src="images/serrucho.webp" alt="Serrucho">
+                <h3>Serrucho</h3>
+                <p>Corte rápido y limpio.</p>
+                <p class="precio">Precio: $9.50</p>
+                <button class="comprar-btn">Comprar</button>
+            </div>
+            <!-- Producto 9 -->
+            <div class="product">
+                <img src="images/pegamento.webp" alt="Pegamento">
+                <h3>Pegamento</h3>
+                <p>Fuerte y duradero.</p>
+                <p class="precio">Precio: $3.00</p>
+                <button class="comprar-btn">Comprar</button>
+            </div>
+            <!-- Producto 10 -->
+            <div class="product">
+                <img src="images/linterna.webp" alt="Linterna">
+                <h3>Linterna</h3>
+                <p>Iluminación potente y portátil.</p>
+                <p class="precio">Precio: $12.00</p>
+                <button class="comprar-btn">Comprar</button>
+            </div>
+            <!-- Producto 11 -->
+            <div class="product">
+                <img src="images/bateria.webp" alt="Batería">
+                <h3>Batería</h3>
+                <p>Alta capacidad y larga duración.</p>
+                <p class="precio">Precio: $25.00</p>
+                <button class="comprar-btn">Comprar</button>
+            </div>
+            <!-- Producto 12 -->
+            <div class="product">
+                <img src="images/cinta_metalica.webp" alt="Cinta Metálica">
+                <h3>Cinta Metálica</h3>
+                <p>Fuerte y resistente al desgaste.</p>
+                <p class="precio">Precio: $4.50</p>
+                <button class="comprar-btn">Comprar</button>
+            </div>
+            <!-- Puedes seguir agregando más productos aquí siguiendo la misma estructura -->
+        </div>
+    </section>
 
-            while (true) {
-                let siguiente = fib[fib.length - 1] + fib[fib.length - 2];
-                if (siguiente > limite) {
-                    break;  // Salimos del bucle si el siguiente número excede el límite
-                }
-                fib.push(siguiente);  // Agregamos el siguiente número a la secuencia
-            }
+    <!-- Sección de Misión -->
+    <section id="mision" class="mision">
+        <h2>Nuestra Misión</h2>
+        <p>Proveer herramientas y materiales de ferretería de alta calidad para satisfacer las necesidades de nuestros clientes, garantizando confianza y excelencia en cada servicio.</p>
+    </section>
 
-            // Si el límite está en la secuencia, no hacemos nada
-            // Si el límite no está en la secuencia, lo añadimos manualmente
-            if (fib[fib.length - 1] < limite) {
-                fib.push(limite);
-            }
+    <!-- Sección de Visión -->
+    <section id="vision" class="vision">
+        <h2>Nuestra Visión</h2>
+        <p>Ser la ferretería líder en la región, reconocida por nuestra innovación, compromiso con el cliente y desarrollo sostenible en el mercado de herramientas y materiales de construcción.</p>
+    </section>
 
-            return fib;
-        }
-
-        function convertirANumeroDeAsteriscos(fib) {
-            return fib.map(num => '*'.repeat(num)).join('\n');
-        }
-
-        // Generamos los números de la secuencia de Fibonacci hasta el número 34
-        const limite = 89;
-        const secuencia = generarFibonacciHastaLimite(limite);
-
-        // Convertimos la secuencia de números a una representación de asteriscos
-        const asteriscos = convertirANumeroDeAsteriscos(secuencia);
-
-        // Mostramos la secuencia de asteriscos en el div con id 'fibonacci-sequence'
-        const div = document.getElementById('fibonacci-sequence');
-        div.textContent = 'Secuencia de Fibonacci (como asteriscos):\n' + asteriscos;
-    </script>
+    <!-- Sección de Contacto -->
+    <section id="contacto" class="contacto">
+        <h2>Contacto</h2>
+        <p><i class="fas fa-map-marker-alt"></i> Dirección: Calle Falsa 123, Ciudad Ejemplo</p>
+        <p><i class="fas fa-phone"></i> Teléfono: (123) 456-7890</p>
+        <p><i class="fas fa-envelope"></i> Email: contacto@ferreteriaxyz.com</p>
+    </section>
 </body>
 </html>
+
+
 
